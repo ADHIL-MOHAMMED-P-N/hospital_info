@@ -10,8 +10,8 @@ const DropDown = (props) => {
   return (
     <>
       <select className="select" value={value} onChange={valueHandler}>
-        {options.map((option) => {
-          return <option value={option.toLowerCase()}>{option}</option>;
+        {options.map((option,index) => {
+          return <option key={index} value={option.toLowerCase()}>{option}</option>;
         })}
       </select>
     </>

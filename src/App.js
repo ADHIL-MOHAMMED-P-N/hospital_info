@@ -2,22 +2,21 @@ import "./App.css";
 import TopNav from "./components/TopNav/TopNav";
 import React , {useState} from 'react'
 import SideNav from "./components/SideNav/SideNav";
-import MenuIcon from '@mui/icons-material/Menu';
+import {GiHamburgerMenu} from 'react-icons/gi'
+import {GrClose} from 'react-icons/gr'
 function App() {
   const [showNav,setShowNav] = useState(false)
+ 
   return (
     <div className="App">
       <TopNav />
-      <div className="main">
+
         {
-         showNav && <SideNav />
+          showNav ? <GrClose className="hamburger" onClick={()=>{setShowNav(!showNav)}} /> : <GiHamburgerMenu className="hamburger" onClick={()=>{setShowNav(!showNav)}}/>
         }
-        
-        <MenuIcon  fontSize="large" className="hamburger" onClick={()=>{setShowNav(!showNav)}}/>
+         <SideNav show={showNav}/>
+
       </div>
-      </div>
-      
-    
   );
 }
 
